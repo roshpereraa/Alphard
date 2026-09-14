@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alphard — The Solitary One</title>
+  <meta name="description" content="Alphard is an independent studio for immersive web, real-time and spatial experiences." />
+  <meta name="theme-color" content="#07080d" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-top mono">
+      <span>α HYDRAE</span><span>RA 09h 27m 35s</span><span>DEC −08° 39′ 31″</span>
+    </div>
+    <div class="loader-count serif"><span id="loader-num">000</span></div>
+    <div class="loader-bar"><i id="loader-fill"></i></div>
+    <div class="loader-bottom mono"><span>Locating the brightest point</span><span id="loader-status">calibrating</span></div>
+  </div>
+
+  <canvas id="sky"></canvas>
+  <div class="grain"></div>
+
+  <!-- Nav -->
+  <header class="nav">
+    <a href="#top" class="wordmark serif" data-link>
+      <svg viewBox="0 0 24 24" class="glyph" aria-hidden="true"><path d="M12 0 L13.6 10.4 L24 12 L13.6 13.6 L12 24 L10.4 13.6 L0 12 L10.4 10.4 Z"/></svg>
+      Alphard
+    </a>
+    <nav class="mono">
+      <a href="#meaning" data-link>Meaning</a>
+      <a href="#catalogue" data-link>Catalogue</a>
+      <a href="#signal" data-link>Signal</a>
+      <span class="clock" id="clock">LST 00:00:00</span>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <p class="eyebrow mono reveal"><span class="dot"></span> Independent studio — est. 2026</p>
+      <h1 class="serif hero-title">
+        <span class="line reveal">Alone,</span>
+        <span class="line reveal"><em>and brightest.</em></span>
+      </h1>
+      <div class="hero-side mono reveal">
+        <p>Immersive web, real-time graphics and spatial experiences for brands that would rather be singular than safe.</p>
+        <a href="#catalogue" class="pill" data-link>Enter the catalogue <span>↓</span></a>
+      </div>
+      <div class="scroll-cue mono">Scroll <i></i></div>
+    </section>
+
+    <!-- Meaning -->
+    <section class="meaning" id="meaning">
+      <div class="section-head">
+        <span class="mono label">§ 01 — The name</span>
+        <h2 class="serif reveal">From the Arabic <em>al-fard</em>:<br/>“the solitary one.”</h2>
+      </div>
+      <p class="lede reveal">
+        Alphard is the brightest star in Hydra, the largest constellation in the sky. It sits in a dark patch with no bright neighbours,
+        so it stands out on its own. That's the kind of studio we want to be: small, independent, and easy to spot.
+      </p>
+      <div class="tenets">
+        <article class="tenet reveal">
+          <span class="mono num">01</span>
+          <h3 class="serif">Solitary</h3>
+          <p>No holding group or layers of account managers. You work directly with the people building your project.</p>
+        </article>
+        <article class="tenet reveal">
+          <span class="mono num">02</span>
+          <h3 class="serif">Luminous</h3>
+          <p>An orange giant, hundreds of times brighter than our Sun. We work at that scale of ambition, and we sweat the details.</p>
+        </article>
+        <article class="tenet reveal">
+          <span class="mono num">03</span>
+          <h3 class="serif">Cor Hydrae</h3>
+          <p>Its old name means “the heart of the serpent.” Every project we take on has a clear centre, and everything else is built around it.</p>
+        </article>
+        <article class="tenet reveal">
+          <span class="mono num">04</span>
+          <h3 class="serif">Light that travels</h3>
+          <p>The starlight you see tonight left Alphard about 177 years ago. We try to build things that last that long.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Catalogue -->
+    <section class="catalogue" id="catalogue">
+      <div class="section-head row">
+        <div>
+          <span class="mono label">§ 02 — Selected work</span>
+          <h2 class="serif reveal">The catalogue</h2>
+        </div>
+        <div class="filters mono" role="tablist" aria-label="Filter work">
+          <button class="active" data-filter="all">All</button>
+          <button data-filter="Web">Web</button>
+          <button data-filter="Installation">Installation</button>
+          <button data-filter="XR">XR</button>
+          <button data-filter="Real-time">Real-time</button>
+        </div>
+      </div>
+      <div class="cat-grid">
+        <ol class="cat-list" id="cat-list"></ol>
+        <aside class="cat-preview">
+          <div class="preview-frame">
+            <canvas id="preview-canvas"></canvas>
+            <div class="preview-meta mono">
+              <span id="preview-id">ALP-001</span>
+              <span id="preview-mag">mag −1.98</span>
+            </div>
+          </div>
+          <p class="mono preview-hint">Hover to preview · click to open</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section class="caps">
+      <div class="marquee serif" aria-hidden="true">
+        <div class="marquee-track">
+          <span>WebGL</span><i>✦</i><span><em>Real-time 3D</em></span><i>✦</i><span>Installations</span><i>✦</i><span><em>WebXR</em></span><i>✦</i><span>Multiplayer</span><i>✦</i><span><em>Creative direction</em></span><i>✦</i>
+          <span>WebGL</span><i>✦</i><span><em>Real-time 3D</em></span><i>✦</i><span>Installations</span><i>✦</i><span><em>WebXR</em></span><i>✦</i><span>Multiplayer</span><i>✦</i><span><em>Creative direction</em></span><i>✦</i>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat reveal"><span class="serif big">177</span><span class="mono">light-years away, still visible</span></div>
+        <div class="stat reveal"><span class="serif big">60<small>fps</small></span><span class="mono">the minimum we ship at</span></div>
+        <div class="stat reveal"><span class="serif big">1</span><span class="mono">team, start to finish</span></div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="signal" id="signal">
+      <span class="mono label center">✦ Send a signal ✦</span>
+      <h2 class="serif signal-title reveal">
+        <span>Idea</span><span class="arrow">→</span><span><em>Orbit</em></span><span class="arrow">→</span><span>Launch</span>
+      </h2>
+      <a class="serif email reveal" href="mailto:hello@alphard.studio">hello@alphard.studio</a>
+      <div class="signal-foot mono">
+        <div class="links">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          <a href="#" aria-label="X">X</a>
+        </div>
+        <div class="coords">09h 27m 35s · −08° 39′ 31″</div>
+        <div class="links">
+          <a href="#">Privacy</a>
+          <a href="#">Careers</a>
+          <span>© 2026 Alphard</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Project detail -->
+  <div class="detail" id="detail" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="d-title">
+    <div class="detail-visual"><canvas id="detail-canvas"></canvas></div>
+    <div class="detail-body">
+      <div class="detail-nav mono">
+        <button id="d-prev" aria-label="Previous project">← Prev</button>
+        <span id="d-count">01 / 08</span>
+        <button id="d-next" aria-label="Next project">Next →</button>
+      </div>
+      <span class="mono label" id="d-id">ALP-001</span>
+      <h2 class="serif" id="d-title">Title</h2>
+      <dl class="mono detail-dl">
+        <div><dt>Client</dt><dd id="d-client"></dd></div>
+        <div><dt>Year</dt><dd id="d-year"></dd></div>
+        <div><dt>Discipline</dt><dd id="d-type"></dd></div>
+        <div><dt>Magnitude</dt><dd id="d-mag"></dd></div>
+      </dl>
+      <p class="detail-desc" id="d-desc"></p>
+      <button class="pill mono" id="d-close">Close <span>esc</span></button>
+    </div>
+  </div>
+
+  <div class="cursor" id="cursor"></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
