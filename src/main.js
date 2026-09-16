@@ -2,6 +2,7 @@ import './style.css';
 import * as THREE from 'three';
 import { projects } from './projects.js';
 import { ArtCanvas } from './art.js';
+import { initWallet } from './wallet.js';
 
 document.body.classList.add('loading');
 const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -373,3 +374,6 @@ addEventListener('pointermove', (e) => { tx = e.clientX; ty = e.clientY; });
 document.addEventListener('pointerover', (e) => {
   cursor.classList.toggle('big', !!e.target.closest('a, button, .cat-item'));
 });
+
+/* ---------------- Wallet ---------------- */
+initWallet();

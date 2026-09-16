@@ -36,6 +36,7 @@
       <a href="#catalogue" data-link>Catalogue</a>
       <a href="#signal" data-link>Signal</a>
       <span class="clock" id="clock">LST 00:00:00</span>
+      <button class="wallet-btn" id="wallet-btn" type="button"><span class="wallet-dot"></span><span id="wallet-btn-label">Connect wallet</span></button>
     </nav>
   </header>
 
@@ -175,6 +176,42 @@
       </dl>
       <p class="detail-desc" id="d-desc"></p>
       <button class="pill mono" id="d-close">Close <span>esc</span></button>
+    </div>
+  </div>
+
+  <!-- Wallet modal -->
+  <div class="wallet-modal" id="wallet-modal" aria-hidden="true">
+    <div class="wallet-backdrop" data-wallet-close></div>
+    <div class="wallet-panel" role="dialog" aria-modal="true" aria-labelledby="wallet-title">
+      <div class="wallet-head">
+        <h2 class="serif" id="wallet-title">Connect a wallet</h2>
+        <button class="mono wallet-x" data-wallet-close aria-label="Close">Close ✕</button>
+      </div>
+      <div class="wallet-connected" id="wallet-connected" hidden>
+        <span class="mono label">Connected</span>
+        <div class="wallet-account">
+          <img id="wc-icon" alt="" />
+          <div>
+            <div class="mono wc-meta" id="wc-meta">MetaMask · Ethereum</div>
+            <code class="wc-address" id="wc-address"></code>
+          </div>
+        </div>
+        <div class="wallet-actions">
+          <button class="pill mono" id="wc-copy">Copy address</button>
+          <button class="pill mono" id="wc-disconnect">Disconnect</button>
+        </div>
+      </div>
+      <div class="wallet-lists" id="wallet-lists">
+        <section>
+          <span class="mono label">Ethereum</span>
+          <ul class="wallet-list" id="wallet-list-evm"></ul>
+        </section>
+        <section>
+          <span class="mono label">Solana</span>
+          <ul class="wallet-list" id="wallet-list-sol"></ul>
+        </section>
+      </div>
+      <p class="mono wallet-error" id="wallet-error" role="alert"></p>
     </div>
   </div>
 
